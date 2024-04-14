@@ -1,5 +1,5 @@
 <template>
-    <div class="container my-5 bg-white p-4">
+    <div class="container  bg-white p-4">
       <RouterLink to="/add-new-contact" class="text-decoration-none">
         <h1 class="text-end">+</h1>
       </RouterLink>
@@ -15,6 +15,7 @@
           v-for="(contact, index) in filteredContacts"
           :key="index"
           :to="'/contact/' + contact.id"
+          class="text-decoration-none link-dark "
         >
           <div class="border p-3">
             <span>{{ contact.firstName }} {{ contact.lastName }}</span>

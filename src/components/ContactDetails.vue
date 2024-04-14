@@ -12,7 +12,7 @@
             <p>{{ contact.phone }}</p>
             <hr>
         </div>
-        <button @click="deleteContact">Delete</button>
+        <button @click="deleteContact" class="btn btn-danger">Delete</button>
     </div>
 </template>
 

@@ -49,8 +49,10 @@ export default {
         },
         onSubmit() {
             const contactId = this.$route.params.id;
+            const tempContact = {...this.editedContact};
             let storedContacts = JSON.parse(localStorage.getItem("contacts")) || [];
             const contactIndex = storedContacts.findIndex(contact => contact.id == contactId);
+            
             if (contactIndex !== -1) {
                 storedContacts[contactIndex] = { ...this.editedContact };
             } else {
@@ -58,7 +60,7 @@ export default {
             }
             localStorage.setItem("contacts", JSON.stringify(storedContacts));
             alert("Contact data updated successfully!");
-            this.$router.push('/');
+            this.$router.push('/contact/' + tempContact.id);
         },
     },
 };
