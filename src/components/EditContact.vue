@@ -1,24 +1,26 @@
 <template>
-    <div class="container mt-5 bg-white p-4">
-        <h1>Edit Contact</h1>
+    <div class="container my-5 bg-white p-4">
+        <RouterLink to="/" class="text-decoration-none"> &lt; Contacts </RouterLink>
+
+        <h1 class="mt-3">Edit Contact</h1>
         <form @submit.prevent="onSubmit">
-            <div class="form-group">
+            <div class="form-group mt-3">
                 <label for="firstName">First Name:</label>
                 <input type="text" id="firstName" v-model="editedContact.firstName" class="form-control" required>
             </div>
-            <div class="form-group">
+            <div class="form-group mt-3">
                 <label for="lastName">Last Name:</label>
                 <input type="text" id="lastName" v-model="editedContact.lastName" class="form-control" required>
             </div>
-            <div class="form-group">
+            <div class="form-group mt-3">
                 <label for="email">Email:</label>
                 <input type="email" id="email" v-model="editedContact.email" class="form-control" required>
             </div>
-            <div class="form-group">
+            <div class="form-group mt-3">
                 <label for="phone">Phone:</label>
                 <input type="tel" id="phone" v-model="editedContact.phone" class="form-control">
             </div>
-            <button type="submit" class="btn btn-primary">Save Changes</button>
+            <button type="submit" class=" mt-3 btn btn-primary">Save Changes</button>
         </form>
     </div>
 </template>
@@ -49,10 +51,10 @@ export default {
         },
         onSubmit() {
             const contactId = this.$route.params.id;
-            const tempContact = {...this.editedContact};
+            const tempContact = { ...this.editedContact };
             let storedContacts = JSON.parse(localStorage.getItem("contacts")) || [];
             const contactIndex = storedContacts.findIndex(contact => contact.id == contactId);
-            
+
             if (contactIndex !== -1) {
                 storedContacts[contactIndex] = { ...this.editedContact };
             } else {

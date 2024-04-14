@@ -1,9 +1,16 @@
 <template>
-    <div class="container  bg-white p-4">
-      <RouterLink to="/add-new-contact" class="text-decoration-none">
-        <h1 class="text-end">+</h1>
-      </RouterLink>
-      <h2>Contacts</h2>
+    <div class="container my-5 bg-white p-4">
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Contacts</h2>
+            </div>
+            <div class="col-md-6">
+                <RouterLink to="/add-new-contact" class="text-decoration-none">
+                  <h5 class="text-end"> + Add new contact</h5>
+                </RouterLink>
+            </div>
+
+        </div>
       <input
         type="text"
         class="form-control"
